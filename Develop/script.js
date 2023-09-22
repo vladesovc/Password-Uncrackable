@@ -1,5 +1,5 @@
 // Assignment Code
-
+// the below will create an array from the string listed after array.from
 const uppercaseChar = Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 const lowercaseChar = Array.from("abcdefghijklmnopqrstuvwxyz");
 const numericChar = Array.from("1234567890");
@@ -20,11 +20,12 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 function generatePassword() {
-  let userChosen = []
-  let password = ""
+  var userChosen = []
+  var password = ""
+   
 
   var passwordLengths = parseInt(prompt("How many characters do you want your password to be? min length 8, max length 128"));
-  if (passwordLengths < 8 || passwordLengths > 128 || Number.isNaN(passwordLengths)){
+  if (passwordLengths < 8 || passwordLengths > 128 || Number.isNaN(passwordLengths)) {
     alert("Password must be a number between 8 and 128 characters.");
     return null;
   }
@@ -37,7 +38,7 @@ function generatePassword() {
     alert("You must pick at least one character to include in your password");
     return null;
   }
-
+// concat being used here to pair multiple strings, here being used to pair each required character the user has selected
   if (hasUppercase) {
     userChosen = userChosen.concat(uppercaseChar);
   }
@@ -50,8 +51,8 @@ function generatePassword() {
   if (hasSpecial) {
     userChosen = userChosen.concat(specialChar);
   }
-  for (let i = 0; i < passwordLengths; i++) {
-    let index = Math.floor(Math.random() * userChosen.length);
+  for (var i = 0; i < passwordLengths; i++) {
+    var index = Math.floor(Math.random() * userChosen.length);
     password += userChosen[index];
   }
   return password;
@@ -75,6 +76,5 @@ function generatePassword() {
 // loop through the possible character array and return characters based on the length given by the user
 // return the results and pass to be generated on the page
 
-// need to assure that the newly created password has at least 1 character for each of the criteria selected
 
 // USE THE AI ASSISTANT TO HELP WITH QUESTION / NEW PHRASES
